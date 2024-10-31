@@ -22,19 +22,21 @@ gradlePlugin {
             id = 'io.github.haishen668.filter-excluded-classes'
             implementationClass = 'io.github.FilterExcludedClassesPlugin'
             displayName = 'Filter Excluded Classes Plugin'
-            description = '过滤并删除带有@ExcludeClass注解的类及其内嵌类。'
+            description = '该Gradle插件过滤并删除带有@ExcludeClass注解的类,帮你快速的剔除需要云端加载的类'
         }
     }
 }
 
 // 添加 mavenCoordinates 配置，并移除被禁止的标签
 pluginBundle {
-    website = 'https://github.com/haishen668/filter-excluded-classes-plugin' // 您的仓库地址
+    website = 'https://github.com/haishen668/filter-excluded-classes-plugin'
     vcsUrl = 'https://github.com/haishen668/filter-excluded-classes-plugin.git'
-    tags = ['exclude', 'classes'] // 移除 'gradle' 和 'plugin'
-
-    mavenCoordinates {
-        groupId = 'io.github.haishen668' // 确保与您的 group 一致
-        artifactId = 'filter-excluded-classes-plugin' // 您的 artifactId，可以自定义
-    }
+    tags = ['exclude', 'classes']
+//    mavenCoordinates {
+//        groupId = 'io.github.haishen668'
+//        artifactId = 'filter-excluded-classes-plugin'
+//    }
+    // 在此处添加文档链接
+    documentationUrl = 'https://github.com/haishen668/filter-excluded-classes-plugin/blob/main/README.md'
 }
+
