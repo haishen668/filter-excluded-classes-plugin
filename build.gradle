@@ -4,7 +4,7 @@ plugins {
     id 'com.gradle.plugin-publish' version '0.21.0'
 }
 
-group = 'io.github.haishen668' // 您的实际组ID
+group = 'io.github.haishen668' // 保持组 ID
 version = '1.0.0' // 设置您的版本
 
 repositories {
@@ -32,11 +32,8 @@ pluginBundle {
     website = 'https://github.com/haishen668/filter-excluded-classes-plugin'
     vcsUrl = 'https://github.com/haishen668/filter-excluded-classes-plugin.git'
     tags = ['exclude', 'classes']
-//    mavenCoordinates {
-//        groupId = 'io.github.haishen668'
-//        artifactId = 'filter-excluded-classes-plugin'
-//    }
-    // 在此处添加文档链接
-    documentationUrl = 'https://github.com/haishen668/filter-excluded-classes-plugin/blob/main/README.md'
+    mavenCoordinates {
+        groupId = 'io.github.haishen668'
+        artifactId = 'filter-excluded-classes-plugin'
+    }
 }
-
