@@ -1,0 +1,41 @@
+name: Release 🚀
+
+on:
+  push:
+    tags:
+      - 'v*' # 只在版本标签推送时触发 🔔
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码 📥
+        uses: actions/checkout@v2
+
+      - name: 设置 JDK 版本 ☕
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17' # 设置所需的 Java 版本
+
+      - name: 构建 🔧
+        run: ./gradlew build
+
+      - name: 发布版本 📝
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 上传插件 JAR 📦
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          files: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
