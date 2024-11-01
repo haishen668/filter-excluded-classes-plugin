@@ -18,7 +18,10 @@ jobs:
         with:
           java-version: '17' # 设置所需的 Java 版本
           distribution: 'temurin' # 设置 Java 发行版
-        
+      
+      - name: 授予执行权限 🔑
+        run: chmod +x gradlew # 确保 gradlew 有执行权限
+      
       - name: 构建 🔧
         run: ./gradlew build
 
